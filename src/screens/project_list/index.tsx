@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 import qs from 'qs'
 import { cleanObject, useMount,useDebounce } from "../../util"
 
-
+// js 的错误大都是在runtime（运行时）发现的 ts 可以在静态检测 也就是编写时候检测
 const apiUrl = process.env.REACT_APP_API_URL
 export const ProjectListScreen = () => {
 
@@ -19,7 +19,7 @@ export const ProjectListScreen = () => {
 
     const [list, setList] = useState([])
 
-    const debounceParam = useDebounce(param, 2000)
+    const debounceParam = useDebounce(param, 500)
     useEffect(() => {
         fetch(`${apiUrl}/projects?${qs.stringify(cleanObject(debounceParam))}`).then(async res => {
             if (res.ok) {
