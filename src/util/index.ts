@@ -34,7 +34,7 @@ export const debounce = (func: ()=> void, delay?: number) => {
         },delay)
     }
 }
-export const useDebounce = (value: any, delay?:number) => {
+export const useDebounce = (value: unknown, delay?:number): any => {
     const [debounceValue, setDebounceValue] = useState(value)
     useEffect(() => {
         // 每次在value 变化以后，设置一个定时器
