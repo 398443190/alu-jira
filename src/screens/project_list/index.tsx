@@ -21,7 +21,9 @@ export const ProjectListScreen = () => {
 
     const debounceParam = useDebounce(param, 500)
     useEffect(() => {
-        fetch(`${apiUrl}/projects?${qs.stringify(cleanObject(debounceParam))}`).then(async res => {
+        let data = qs.stringify(cleanObject(debounceParam))
+        console.log(data, 'data')
+        fetch(`${apiUrl}/projects?${data}`).then(async res => {
             if (res.ok) {
                 setList(await res.json())
             }
